@@ -1,0 +1,81 @@
+import urllib.request
+import json
+import re
+#web=urllib.request.urlopen('httpswww.gsp.gov.twiTaiwanitw_tw.json')
+url = 'httpsquality.data.gov.twdq_download_json.phpnid=5962&md5_url=97edc5f63a68011df2be9ca64423da5e'
+web = urllib.request.urlopen(url)
+data = web.read().decode('utf-8')
+data_json=json.loads(data)
+
+# print(record['AGENCY'])   print(record['AGENCY'],record['NAME'], ,record['ADDR'])
+#str1 = 'Mark'record['AGENCY']==內政部str1=record['AGENCY']str2='內政部' print(],end='')print(i,end='')
+#
+mode=0
+arr=[臺北市,新北市,桃園市,臺中市,臺南市,高雄市,新竹縣,苗栗縣,彰化縣,南投縣,雲林縣,嘉義縣,屏東縣,宜蘭縣,花蓮縣,臺東縣,澎湖縣,金門縣,連江縣,基隆市,新竹市,嘉義市]
+print(iTaiwan中央行政機關室內公共區域免費無線上網熱點查詢服務)
+while mode!=-1
+  print(選擇服務模式)
+  print([依縣市查詢]1)
+  print([依機關名查詢]2)
+  print([依地址查詢]3)
+  print([列出所有]4)
+  print([結束查詢]-1)
+  mode=int(input(輸入模式代號=))
+  if(mode==1)
+    for i in range(0,22)
+      if i%3==0
+        print(n) 
+      print(arr[i]+[,'%2d'%i,] ,end='')
+
+    code =int(input(n輸入縣市代號=))
+    v=arr[code]
+  
+    compareAGE=HI
+    for record in data_json
+      if v in record['ADDR']
+        if(compareAGE not in record['AGENCY'])
+          compareAGE=record['AGENCY']
+          print(n機關名稱,record['AGENCY'],n)
+        print(服務站名,record['NAME'],n地址,record['ADDR'])
+        print(===========)
+    
+  if(mode==2)
+    compareAGE=HI 
+    flag=0
+    enter =input(n輸入機關名稱=)
+    for record in data_json
+      if enter in record['AGENCY']
+        flag=1
+        if(compareAGE != record['AGENCY'])
+            compareAGE=record['AGENCY']
+            print(n機關名稱,record['AGENCY'],n)
+        print(服務站名,record['NAME'],n地址,record['ADDR'])
+        print(===========)
+    if flag==0
+      print(沒找到相關名稱)
+    flag=0
+  if(mode==3)
+    compareAGE=HI
+    flag=0
+    enter =input(n輸入地址=)     
+    for record in data_json
+      if enter in record['ADDR']
+        flag=1
+        if(compareAGE != record['AGENCY'])
+          compareAGE=record['AGENCY']
+          print(n機關名稱,record['AGENCY'],n)
+        print(服務站名,record['NAME'],n地址,record['ADDR'])
+        print(===========)
+    if flag==0
+      print(沒找到相關地址)
+    flag=0
+  if(mode==4)
+    compareAGE=HI
+    for record in data_json
+      if(compareAGE != record['AGENCY'])
+        compareAGE=record['AGENCY']
+        print(n機關名稱,record['AGENCY'],n)
+      print(服務站名,record['NAME'],n地址,record['ADDR'])
+      print(===========)
+  if mode!=-1
+    print(輸入錯誤請重新輸入!!)
